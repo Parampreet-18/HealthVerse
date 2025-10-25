@@ -1,0 +1,100 @@
+/* Dark Theme Subscription Section */
+  .subscription-section {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+    background: #111; /* dark background */
+  }
+
+  .subscription-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1000px;
+  }
+
+  .plan {
+    background: #1a1a1a;
+    border: 2px solid #333;
+    border-radius: 12px;
+    padding: 30px 20px;
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s, border-color 0.3s;
+    position: relative;
+  }
+
+  .plan:hover {
+    transform: translateY(-8px);
+    border-color: #6a11cb;
+    box-shadow: 0 8px 20px rgba(106, 17, 203, 0.5);
+  }
+
+  .plan h2 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+
+  .price {
+    color: #6a11cb;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  .features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+    color: #aaa;
+    text-align: left;
+  }
+
+  .features li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 25px;
+  }
+
+  .features li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #6a11cb;
+  }
+
+  button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #6a11cb;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: #9b59b6;
+  }
+
+  .recommended .badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #ff0080;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 12px;
+    font-weight: bold;
+  }
+
+  @media(max-width: 950px){
+    .subscription-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }

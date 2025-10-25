@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<head>
+  <title>!HealthVerse!</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3292/3292214.png">
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="slider.css">
+  <link rel="stylesheet" href="subscription.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="logo">
+      <img src="Screenshot 2025-08-30 121152.png" alt="Workout">
+      !HealthVerse!
+    </div>
+    <nav>
+      <a href="#">Dashboard</a>
+      <a href="#ai">AI Analysis</a>
+      <a href="#nutrition">Nutrition</a> 
+      <a href="#sleep">Sleep</a>
+      
+      <a href="#subscription">Subscription</a>
+    </nav>
+  <!-- ✅ Login Button -->
+<a href="#" id="loginBtn" class="button">
+  <span class="button__text">Login</span>
+  <img src="img/cone.png" alt="" class="button__cone" />
+  <img src="img/torus.png" alt="" class="button__torus" />
+  <img src="img/icosahedron.png" alt="" class="button__icosahedron" />
+  <img src="img/sphere.png" alt="" class="button__sphere" />
+</a>
+<!-- ✅ Popup Modal -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Choose Login Type</h2>
+    <button class="role-btn" data-role="owner">Owner</button>
+    <button class="role-btn" data-role="trainer">Trainer</button>
+    <button class="role-btn" data-role="user">User</button>
+  </div>
+</div>
+  <script>
+  const modal = document.getElementById("loginModal");
+  const loginBtn = document.getElementById("loginBtn");
+  const closeBtn = document.querySelector(".close");
+
+  // Open modal
+  loginBtn.onclick = function (e) {
+    e.preventDefault();
+    modal.style.display = "block";
+  };
+
+  // Close modal
+  closeBtn.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  // Close if click outside
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+
+  // Role button click
+  const roleButtons = document.querySelectorAll(".role-btn");
+  roleButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const role = btn.dataset.role;
+      // Redirect to OTP login with role as query
+      window.location.href = `http://localhost:5500/?role=${role}`;
+    });
+  });
+</script>
+  </header> 
+
+<!-- Slideshow Section -->
+<div class="container">
+        
+        <div class="slideshow-container">
+            <div class="mySlides fade active">
+                <img src="slide1.png" class="slide-image" alt="Mountain landscape with trees and lake">
+                
+            </div>
+            
+            <div class="mySlides fade">
+                <img src="slide2.png" class="slide-image" alt="Rocky beach with waves crashing">
+               
+            </div>
+            
+            <div class="mySlides fade">
+                <img src="slide3.png" class="slide-image" alt="Forest path with sunlight filtering through trees">
+              
+            </div>
+            
+            <button class="prev" onclick="plusSlides(-1)" aria-label="Previous slide">&#10094;</button>
+            <button class="next" onclick="plusSlides(1)" aria-label="Next slide">&#10095;</button>
+        </div>
+        
+        <div class="dots-container">
+            <span class="dot active" onclick="currentSlide(1)" aria-label="Go to slide 1"></span>
+            <span class="dot" onclick="currentSlide(2)" aria-label="Go to slide 2"></span>
+            <span class="dot" onclick="currentSlide(3)" aria-label="Go to slide 3"></span>
+            <span class="dot" onclick="currentSlide(4)" aria-label="Go to slide 4"></span>
+            <span class="dot" onclick="currentSlide(5)" aria-label="Go to slide 5"></span>
+        </div>
+        
+        <div class="controls">
+            
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+        </div>
+    </div>
+<!-- Slideshow Section End-->
+
+
+  <!-- Body Analysis -->
+  
+
+  <section id="ai" class="ai-body-scan">
+  <div class="scan-overlay"></div>
+
+  <div class="scan-left">
+    <h1>AI-Powered Body Scan</h1>
+    <p>
+      Harness the power of computer vision and neural analytics to measure, predict, 
+      and optimize your physical performance in real-time.
+    </p>
+
+    <div class="scan-info">
+      <div class="info-item">
+        <h3>🧬 Composition</h3>
+        <p>Real-time analysis of fat, muscle, and water ratio.</p>
+      </div>
+      <div class="info-item">
+        <h3>📏 Posture</h3>
+        <p>Instant feedback on alignment and balance accuracy.</p>
+      </div>
+      <div class="info-item">
+        <h3>🔥 Metabolic Rate</h3>
+        <p>AI-driven tracking of calories and energy efficiency.</p>
+      </div>
+    </div>
+
+    <button class="analyze-btn">⚡ Run Full Scan</button>
+  </div>
+
+  <div class="scan-right">
+    <div class="holo-grid"></div>
+    <img src="1.jpg" alt="AI Body Visualization" class="body-holo">
+  </div>
+</section>
+  <!-- Nutrition -->
+<section id="nutrition" class="ai-body-scan">
+  <div class="scan-overlay"></div>
+
+  <div class="scan-left">
+    <h1>Your Nutrition Dashboard</h1>
+    <p>Choose the method that fits your lifestyle for the most accurate and effortless tracking.
+      Visualize your daily intake and get AI-powered insights.
+    </p>
+
+    <div class="scan-info">
+      <div class="info-item">
+        <h3>📊 Barcode Scanning</h3>
+        <p>Real-time analysis of log packaged foods.</p>
+      </div>
+      <div class="info-item">
+        <h3>💡 AI Suggestions</h3>
+        <p>AI-driven Smart meal recommendations.</p>
+      </div>
+      <div class="info-item">
+        <h3>💧 Hydration Tracke</h3>
+        <p>AI-driven tracking of Log and monitor water intake</p>
+      </div>
+    </div>
+
+    <button class="analyze-btn">⚡ Run Full Scan</button>
+  </div>
+
+  <div class="scan-right">
+    <div class="holo-grid"></div>
+    <img src="2.png" alt="AI Body Visualization" class="body-holo">
+  </div>
+</section>
+
+
+  <!-- Sleep Analysis -->
+
+
+<section id="sleep" class="ai-body-scan">
+  <div class="scan-overlay"></div>
+
+  <div class="scan-left">
+    <h1>Advanced Sleep Analysis</h1>
+    <p>Understand your sleep patterns and get personalized recommendations for better rest and recovery.
+    </p>
+
+    <div class="scan-info">
+      <div class="info-item">
+        <h3>Sleep Duration Tracking</h3>
+        <p>Monitor how long you sleep each night with precision timing.</p>
+      </div>
+      <div class="info-item">
+        <h3>Sleep Quality Analysis</h3>
+        <p>Measure sleep stages and quality using AI algorithms.</p>
+      </div>
+      <div class="info-item">
+        <h3>Smart Wake-up</h3>
+        <p>Wake up at the optimal time in your sleep cycle.</p>
+      </div>
+    </div>
+
+    <button class="analyze-btn">⚡ View full reports</button>
+  </div>
+
+  <div class="scan-right">
+    <div class="holo-grid"></div>
+    <img src="3.png" alt="AI Body Visualization" class="body-holo">
+  </div>
+</section>
+
+
+
+  <!-- Subscription -->
+<section id="subscription"class="subscription-section">
+  <div class="subscription-container">
+    <!-- Basic Plan -->
+    <div class="plan">
+      <h2>Basic</h2>
+      <div class="price">$5 / mo</div>
+      <ul class="features">
+        <li>Access to basic content</li>
+        <li>1 project allowed</li>
+        <li>Email support</li>
+      </ul>
+      <button onclick="window.location.href='payment.html'">Subscribe</button>
+    </div>
+
+    <!-- Standard Plan -->
+    <div class="plan recommended">
+      <div class="badge">Recommended</div>
+      <h2>Standard</h2>
+      <div class="price">$15 / mo</div>
+      <ul class="features">
+        <li>All content access</li>
+        <li>5 projects allowed</li>
+        <li>Priority support</li>
+      </ul>
+      <button onclick="window.location.href='payment.html'">Subscribe</button>
+    </div>
+
+    <!-- Premium Plan -->
+    <div class="plan">
+      <h2>Premium</h2>
+      <div class="price">$25 / mo</div>
+      <ul class="features">
+        <li>Unlimited projects</li>
+        <li>Priority support</li>
+        <li>Exclusive content & resources</li>
+      </ul>
+      <button onclick="window.location.href='payment.html'">Subscribe</button>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  function subscribePlan(planName) {
+    alert(`You selected the ${planName} plan. Proceed to payment.`);
+  }
+</script>
+
+  <!-- Footer -->
+  
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>We create stunning digital experiences with cutting-edge design and technology. Our mission is to transform ideas into exceptional digital solutions.</p>
+                <div class="social-links">
+    <a href="https://github.com/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzgINM0sHk37IgIHQXRdj25k0wDLRpg9i4Og&s" alt="Facebook" class="social-icon"></a>
+    <a href="https://www.instagram.com/"><img src="https://play-lh.googleusercontent.com/VRMWkE5p3CkWhJs6nv-9ZsLAs1QOg5ob1_3qg-rckwYW7yp1fMrYZqnEFpk0IoVP4LM" alt="Instagram" class="social-icon"></a>
+    <a href="https://www.Facebook.com/"><img src="https://img.freepik.com/premium-vector/facebook-logo-vector-facebook-official-logo-vector-facebook-logo-illustrator_1002350-1803.jpg?semt=ais_hybrid&w=740&q=80" alt="GitHub" class="social-icon"></a>
+</div>
+
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> About</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Portfolio</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div  class="footer-section">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Ai Analysis</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Nutrition</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Sleep</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Subscription</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter to receive updates and exclusive offers.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 HealthVerse Inc. All rights reserved.</p>
+            <!-- <div class="payment-methods">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fab fa-cc-apple-pay"></i>
+            </div> -->
+        </div>
+    </footer>
+
+  <script src="index.js"></script>
+  <script src="slider.js"></script>
+
+
+</body>
+
+</html>

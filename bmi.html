@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator Table</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA0L2pvYjE4MjktYmFja2dyb3VuZC1saW5nLTIwZi5qcGc.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 100px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      border: 3px solid black;
+      padding: 50px;
+      border-radius: 10px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 50px;
+      color: rgb(255, 220, 154);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 50px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 20px;
+      text-align: center;
+    }
+    th {
+      background-color: #044b2a;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #d7d3d3;
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+    }
+    button {
+      display: block;
+      margin: 10px auto;
+      background: #2980b9;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #1a5276;
+    }
+    .bmi {
+      font-weight: bold;
+      color: #2980b9;
+    }
+    .under { color: #e67e22; }
+    .normal { color: #27ae60; }
+    .over { color: #e74c3c; }
+    .obese { color: #c0392b; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>✨ BMI Calculator Table ✨</h2>
+
+    <table id="bmiTable">
+      <tr>
+        <th>Name</th>
+        <th>Weight (kg)</th>
+        <th>Height (cm)</th>
+        <th>BMI</th>
+        <th>Status</th>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="Name"></td>
+        <td><input type="number" placeholder="kg"></td>
+        <td><input type="number" placeholder="cm"></td>
+        <td class="bmi">-</td>
+        <td class="status">-</td>
+      </tr>
+    </table>
+
+    <button onclick="calculateBMI()">Calculate BMI</button>
+  </div>
+
+<script>
+  function calculateBMI() {
+    let table = document.getElementById("bmiTable");
+    for (let i = 1; i < table.rows.length; i++) {
+      let weight = parseFloat(table.rows[i].cells[1].children[0].value);
+      let height = parseFloat(table.rows[i].cells[2].children[0].value);
+
+      if (weight > 0 && height > 0) {
+        let heightInMeter = height / 100;
+        let bmi = weight / (heightInMeter * heightInMeter);
+        table.rows[i].cells[3].innerText = bmi.toFixed(2);
+
+        let statusCell = table.rows[i].cells[4];
+        if (bmi < 18.5) {
+          statusCell.innerText = "Underweight";
+          statusCell.className = "status under";
+        } else if (bmi >= 18.5 && bmi < 24.9) {
+          statusCell.innerText = "Normal";
+          statusCell.className = "status normal";
+        } else if (bmi >= 25 && bmi < 29.9) {
+          statusCell.innerText = "Overweight";
+          statusCell.className = "status over";
+        } else {
+          statusCell.innerText = "Obese";
+          statusCell.className = "status obese";
+        }
+
+        // ✅ Show popup
+        alert("Your BMI is " + bmi.toFixed(2) + " (" + statusCell.innerText + ")");
+      } else {
+        table.rows[i].cells[3].innerText = "-";
+        table.rows[i].cells[4].innerText = "-";
+      }
+    }
+  }
+</script>
+
+
+</body>
+</html>
